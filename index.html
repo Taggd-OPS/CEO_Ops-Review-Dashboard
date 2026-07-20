@@ -2155,7 +2155,7 @@ function buildKPIs(){
   const cards = [
     {label:'Budget Revenue', icon:'a', value: '₹'+fmt.inrLakh(active.budRev), sub: periodSub + ' plan', delta: budDelta, deltaLabel:'vs Q3', metric:'budRev'},
     {label:'Forecast Revenue', icon:'b', value: '₹'+fmt.inrLakh(active.fcRev), sub: 'Achievement '+fmt.pct(active.achievement), delta: fcDelta, deltaLabel:'vs Q3', metric:'fcRev'},
-    {label:'CM% (Cost / Rev)', icon:'c', value: fmt.pct(active.cm), sub:'Lower is better', delta: cmDelta/100, deltaLabel:'pp vs Q3', isPP:true, metric:'cm', invert:true},
+    {label:'CM% (Cost / Rev)', icon:'c', value: fmt.pct(active.cm), sub:'', delta: cmDelta/100, deltaLabel:'pp vs Q3', isPP:true, metric:'cm', invert:true},
     {label:'PPC', icon:'d', value: '₹'+fmt.inr(active.ppc), sub:'Per-person cost', delta: ppcDelta, deltaLabel:'vs Q3', metric:'ppc', invert:true},
     {label:'Head Count', icon:'e', value: Math.round(active.hc).toLocaleString('en-IN'), sub: active._qs.length === 4 ? 'Sum across accounts' : periodSub, delta: hcDelta, deltaLabel:'vs Q3', metric:'hc'},
     {label:'Rev Productivity', icon:'f', value: active.revPro.toFixed(2), sub: active._qs.length === 4 ? 'Annual avg multiple' : periodSub + ' avg', delta: rpDelta, deltaLabel:'vs Q3', metric:'revPro'},
@@ -2188,7 +2188,6 @@ function buildKPIs(){
       <div class="kpi-label"><span class="kpi-name">${c.label}</span><span class="kpi-icon">${c.icon}</span></div>
       <div class="kpi-value">${c.value}</div>
       <div class="kpi-sub"><span>${c.sub}</span></div>
-      ${sparkPath}
     </div>`;
   }).join('');
 }
